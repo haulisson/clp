@@ -1,4 +1,4 @@
-project:
+git initproject:
   type: website
 
 website:
