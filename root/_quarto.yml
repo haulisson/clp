@@ -1,4 +1,4 @@
-git initproject:
+project:
   type: website
 
 website:
@@ -16,6 +16,8 @@ format:
       - brand
     css: styles.css
     toc: true
+execute: 
+bibliography:
 
 
 
