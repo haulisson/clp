@@ -16,8 +16,8 @@ format:
       - brand
     css: styles.css
     toc: true
-execute: 
-bibliography:
+# execute: 
+# bibliography:
 
 
 
