@@ -26,7 +26,7 @@ website:
             text: Capítulo 1 — Introdução aos CLPs
           - href: content/cap02-estrutura-clp/index.qmd
             text: Capítulo 2 — Estrutura e Funcionamento de um CLP
-          - href: content/cap03-norma/cap03-norma.qmd
+          - href: content/cap03-norma/index.qmd
             text: Capítulo 3 — Norma IEC 61131
 
 format:
