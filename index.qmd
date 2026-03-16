@@ -27,6 +27,23 @@ Explica a arquitetura básica do controlador, incluindo CPU, memória, módulos 
 
 - [Capítulo 2 - Estrutura e Funcionamento de um CLP](content/cap02-estrutura-clp/index.qmd)
 
+## Capítulo 3 — Norma IEC 61131-3
+
+A norma **IEC 61131-3** define as linguagens de programação utilizadas em
+Controladores Lógicos Programáveis.
+
+Neste capítulo são apresentadas:
+
+- a origem da padronização das linguagens de CLP
+- a estrutura da norma IEC 61131
+- as linguagens definidas pelo padrão:
+  - Ladder Diagram (LD)
+  - Function Block Diagram (FBD)
+  - Structured Text (ST)
+  - Instruction List (IL)
+  - Sequential Function Chart (SFC)
+
+- [Capítulo 3 - Norma IEC 61131](content/cap03-norma/cap03-norma.qmd)
 *(Próximos capítulos serão adicionados progressivamente)*
 
 - Endereçamento de entradas e saídas  
