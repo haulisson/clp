@@ -1,2 +1,26 @@
-/.quarto/
+# Cache do Quarto
+.quarto/
+
+# Arquivos intermediários gerados pelo Quarto
 **/*.quarto_ipynb
+
+# Build local do site (não precisa ir para o GitHub)
+_site/
+
+# Cache de renderização
+.quarto-cache/
+
+# Arquivos temporários do sistema
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Arquivos temporários comuns
+*.log
+*.tmp
+*.temp
+
+# VSCode
+.vscode/
+
+/.quarto/
