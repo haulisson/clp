@@ -8,9 +8,22 @@ website:
       - href: index.qmd
         text: Home
       - href: content/cap01-introducao/index.qmd
-        text: Capítulo 1
-      - href: about.qmd
-        text: Sobre
+        text: Cap. 1
+      - href: content/cap02-estrutura-clp/index.qmd
+        text: Cap. 2
+      - about.qmd
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - section: "Conteúdo"
+        contents:
+          - href: index.qmd
+            text: Apresentação
+          - href: content/cap01-introducao/index.qmd
+            text: Capítulo 1 — Introdução aos CLPs
+          - href: content/cap02-estrutura-clp/index.qmd
+            text: Capítulo 2 — Estrutura e Funcionamento de um CLP
 
 format:
   html:
@@ -19,6 +32,11 @@ format:
       - brand
     css: styles.css
     toc: true
+    toc-depth: 3
+
+execute:
+  freeze: auto
+
 # execute: 
 # bibliography:
 

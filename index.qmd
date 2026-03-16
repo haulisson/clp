@@ -21,6 +21,12 @@ A apostila está organizada em capítulos progressivos.
 
 - [Capítulo 1 — Introdução aos Controladores Lógicos Programáveis](content/cap01-introducao/index.qmd)
 
+### Capítulo 2 — Estrutura e Funcionamento de um CLP
+
+Explica a arquitetura básica do controlador, incluindo CPU, memória, módulos de entrada e saída, fonte de alimentação, comunicação industrial e ciclo de varredura.
+
+[Acessar o Capítulo 2](content/cap02-estrutura-clp/index.qmd)
+
 *(Próximos capítulos serão adicionados progressivamente)*
 
 - Arquitetura de CLPs  
@@ -61,6 +67,16 @@ Durante a disciplina serão utilizados simuladores industriais, como:
 Essas ferramentas permitem testar programas Ladder antes da implementação em CLPs reais.
 
 ---
+
+## Recursos trabalhados ao longo da apostila
+
+Ao longo dos capítulos, o estudante terá contato com:
+
+- exemplos industriais;
+- diagramas e representações;
+- exercícios resolvidos;
+- exercícios propostos;
+- sugestões de simulação com ferramentas educacionais.
 
 ## Sobre o Projeto
 

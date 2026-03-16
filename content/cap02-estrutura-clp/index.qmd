@@ -1,0 +1,345 @@
+---
+title: "Capítulo 2 — Estrutura e Funcionamento de um CLP"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+---
+
+# Capítulo 2 — Estrutura e Funcionamento de um CLP
+
+:::{.callout-tip}
+## Objetivo do capítulo
+Compreender a estrutura interna de um CLP, identificar a função de seus principais módulos e entender como ocorre o ciclo de varredura no controle de processos industriais.
+:::
+
+## Introdução
+
+O **Controlador Lógico Programável (CLP)** é o elemento central de muitos sistemas de automação industrial. Ele recebe sinais de **entradas**, processa essas informações de acordo com um programa e atualiza as **saídas** para comandar máquinas e processos.
+
+Na prática, o CLP funciona como o “cérebro” do sistema automatizado. Sensores, botoeiras e chaves enviam informações ao controlador. Em seguida, o programa interno decide como acionar motores, válvulas, sinalizadores e contatores.
+
+Neste capítulo, veremos os principais blocos que formam um CLP e como eles trabalham em conjunto durante o funcionamento do sistema.
+
+## Visão geral da estrutura de um CLP
+
+De forma simplificada, um CLP é composto por:
+
+- **CPU**
+- **memória**
+- **módulos de entrada**
+- **módulos de saída**
+- **fonte de alimentação**
+- **interfaces de comunicação**
+
+Esses elementos atuam de forma integrada para executar o programa de controle de maneira cíclica e confiável.
+
+### Representação simplificada
+
+```{mermaid}
+flowchart LR
+    A[Sensores e botoeiras] --> B[Módulos de entrada]
+    B --> C[CPU]
+    D[Memória] --> C
+    C --> E[Módulos de saída]
+    E --> F[Motores, válvulas e sinalizadores]
+    G[Fonte de alimentação] --> B
+    G --> C
+    G --> E
+    H[Comunicação industrial] --> C
+```
+
+## CPU
+
+A **CPU (Unidade Central de Processamento)** é a parte responsável por executar o programa do usuário. Ela lê o estado das entradas, processa a lógica de controle e decide o estado das saídas.
+
+Em termos práticos, a CPU interpreta instruções como contatos, bobinas, temporizadores, contadores e comparações. Todo o comportamento do sistema automatizado depende do programa executado nessa unidade.
+
+### Exemplo industrial
+
+Em uma esteira transportadora, a CPU pode:
+
+- verificar se a botoeira de partida foi pressionada;
+- conferir se o sensor de presença detectou uma caixa;
+- acionar o motor da esteira;
+- desligar o sistema em caso de emergência.
+
+## Memória
+
+A **memória** armazena as informações necessárias ao funcionamento do CLP. De forma didática, podemos dividir seu uso em três grupos principais:
+
+### Memória do programa
+
+Armazena o programa desenvolvido pelo usuário, por exemplo em Ladder.
+
+### Memória de dados
+
+Guarda valores usados durante a execução, como:
+
+- temporizadores;
+- contadores;
+- marcas internas;
+- valores numéricos;
+- estados intermediários do processo.
+
+### Memória imagem de entradas e saídas
+
+O CLP normalmente não consulta os sinais físicos a cada instrução do programa. Em vez disso, ele cria uma **imagem das entradas** e uma **imagem das saídas**.
+
+Primeiro, ele copia o estado das entradas físicas para uma área de memória. Depois, executa o programa usando essa imagem. Ao final, atualiza a imagem das saídas e transfere o resultado para os módulos de saída.
+
+Essa organização torna o funcionamento mais previsível.
+
+## Módulos de entrada
+
+Os **módulos de entrada** recebem sinais vindos do campo, isto é, dos dispositivos conectados ao processo industrial.
+
+### Entradas digitais
+
+Recebem sinais com dois estados possíveis, como:
+
+- 0 ou 1;
+- desligado ou ligado;
+- sem tensão ou com tensão.
+
+Exemplos de dispositivos ligados a entradas digitais:
+
+- botoeiras;
+- chaves fim de curso;
+- sensores indutivos;
+- pressostatos;
+- contatos auxiliares.
+
+### Entradas analógicas
+
+Recebem sinais variáveis dentro de uma faixa contínua.
+
+Exemplos:
+
+- 0 a 10 V;
+- 4 a 20 mA.
+
+Essas entradas são usadas com sensores que medem grandezas como:
+
+- temperatura;
+- pressão;
+- nível;
+- vazão;
+- posição.
+
+### Exemplo industrial
+
+Em um tanque automatizado:
+
+- um sensor de nível alto pode estar ligado em uma **entrada digital**;
+- um transmissor contínuo de nível pode estar ligado em uma **entrada analógica**.
+
+## Módulos de saída
+
+Os **módulos de saída** enviam comandos do CLP para os atuadores do sistema.
+
+### Saídas digitais
+
+Atuam em dois estados, ligando ou desligando um dispositivo.
+
+Podem ser usadas para comandar:
+
+- contatores;
+- relés;
+- lâmpadas sinalizadoras;
+- válvulas solenoides;
+- sirenes.
+
+#### Tipos comuns
+
+##### Saída a relé
+
+É versátil e pode chavear diferentes tensões, mas geralmente possui velocidade de comutação menor.
+
+##### Saída a transistor
+
+Tem resposta mais rápida e é muito usada em circuitos CC.
+
+### Saídas analógicas
+
+Enviam sinais proporcionais para controle contínuo.
+
+Exemplos de aplicação:
+
+- controle de velocidade de inversores;
+- posicionamento de válvulas proporcionais;
+- referência de temperatura ou pressão.
+
+## Fonte de alimentação
+
+A **fonte de alimentação** fornece energia para o funcionamento interno do CLP e, em muitos casos, para os módulos associados.
+
+Dependendo do modelo, o CLP pode ser alimentado em:
+
+- 24 Vcc;
+- 110 Vca;
+- 220 Vca.
+
+A fonte precisa garantir estabilidade elétrica para que a CPU, a memória e os módulos operem corretamente.
+
+### Importância prática
+
+Uma alimentação inadequada pode provocar:
+
+- falhas de leitura;
+- reinicializações indevidas;
+- mau funcionamento das saídas;
+- perda de confiabilidade no processo.
+
+## Comunicação industrial
+
+Os CLPs modernos frequentemente possuem recursos de **comunicação industrial** para troca de dados com outros equipamentos.
+
+Isso permite integrar o controlador com:
+
+- IHMs;
+- supervisórios;
+- inversores de frequência;
+- remotas de entrada e saída;
+- outros CLPs;
+- sistemas de gerenciamento industrial.
+
+### Exemplos de protocolos comuns
+
+- Modbus
+- Profibus
+- Profinet
+- Ethernet/IP
+- CANopen
+
+A escolha do protocolo depende do fabricante, da aplicação e do nível de integração desejado.
+
+## Ciclo de varredura (scan cycle)
+
+O funcionamento do CLP ocorre de forma cíclica. Esse processo é chamado de **ciclo de varredura** ou **scan cycle**.
+
+Em linhas gerais, o CLP repete continuamente as seguintes etapas:
+
+1. lê as entradas;
+2. atualiza a imagem de entradas;
+3. executa o programa do usuário;
+4. atualiza a imagem de saídas;
+5. envia os estados finais para as saídas físicas.
+
+### Representação do ciclo
+
+```{mermaid}
+flowchart TD
+    A[Ler entradas] --> B[Atualizar imagem de entradas]
+    B --> C[Executar o programa]
+    C --> D[Atualizar imagem de saídas]
+    D --> E[Escrever saídas físicas]
+    E --> A
+```
+
+### Interpretação didática
+
+Isso significa que o CLP não toma decisões “fora do ciclo”. Ele sempre repete essa sequência, muitas vezes em poucos milissegundos.
+
+### Exemplo prático
+
+Suponha um sistema com:
+
+- uma botoeira de partida;
+- um sensor de proteção;
+- um motor acionado por contator.
+
+Durante o ciclo:
+
+- o CLP lê a botoeira e o sensor;
+- executa a lógica programada;
+- decide se a bobina de saída deve ser ligada;
+- atualiza o módulo de saída.
+
+## Relação entre estrutura do CLP e dispositivos reais
+
+Para consolidar o entendimento, observe a associação abaixo:
+
+| Elemento do sistema | Exemplo prático |
+|---|---|
+| Entrada digital | botoeira, sensor indutivo, fim de curso |
+| Entrada analógica | transmissor de pressão, sensor de nível contínuo |
+| Saída digital | contator, relé, válvula solenoide |
+| Saída analógica | inversor de frequência, válvula proporcional |
+| CPU | processamento da lógica do programa |
+| Memória | armazenamento do programa e dos estados internos |
+
+## Exemplo industrial integrado
+
+Considere um sistema de bombeamento de água com:
+
+- botoeira de partida;
+- botoeira de parada;
+- sensor de nível mínimo;
+- sensor de nível máximo;
+- motor da bomba;
+- sinalização luminosa.
+
+Nesse sistema:
+
+- as botoeiras e sensores entram nos **módulos de entrada**;
+- a **CPU** executa a lógica do programa;
+- a **memória** armazena estados e temporizações;
+- o comando da bomba e da lâmpada sai pelos **módulos de saída**;
+- o processo se repete a cada **scan cycle**.
+
+## Simulação e prática
+
+Para fixar o conteúdo, este capítulo pode ser associado a simulações em plataformas como:
+
+- **CADeSimu**;
+- **PLCIOsim**;
+- **CODESYS**.
+
+Uma atividade interessante é montar uma pequena lógica de partida e parada e observar como as entradas e saídas se comportam durante o ciclo de varredura.
+
+## Exercício resolvido
+
+### Situação
+
+Um CLP recebe o sinal de uma botoeira de partida e de um sensor de segurança. A saída comanda um contator de motor.
+
+O motor só pode ligar quando:
+
+- a botoeira de partida for acionada;
+- o sensor de segurança indicar condição normal.
+
+### Interpretação
+
+- **entradas**: botoeira e sensor;
+- **CPU**: processa a lógica;
+- **saída**: contator do motor.
+
+### Resolução conceitual
+
+1. o módulo de entrada lê a botoeira e o sensor;
+2. a CPU avalia a condição lógica;
+3. se ambas as condições forem válidas, a saída é energizada;
+4. o módulo de saída comanda o contator.
+
+## Exercícios propostos
+
+1. Explique a diferença entre **CPU** e **memória** em um CLP.
+2. Dê dois exemplos de **entradas digitais** e dois de **entradas analógicas**.
+3. Dê dois exemplos de **saídas digitais** e dois de **saídas analógicas**.
+4. Explique com suas palavras o que é o **ciclo de varredura**.
+5. Em um sistema com sensor, válvula e motor, identifique quais elementos podem ser ligados às entradas e quais podem ser ligados às saídas.
+
+## Síntese do capítulo
+
+Neste capítulo, vimos que o CLP é formado por módulos que trabalham em conjunto:
+
+- a **CPU** processa o programa;
+- a **memória** armazena instruções e dados;
+- os **módulos de entrada** recebem sinais do campo;
+- os **módulos de saída** comandam os atuadores;
+- a **fonte** garante a alimentação do sistema;
+- a **comunicação industrial** integra o CLP a outros equipamentos;
+- o **scan cycle** organiza a execução do controle.
+
+Com essa base, o estudante passa a compreender melhor como o controlador atua fisicamente no processo industrial e fica preparado para estudar a programação em Ladder com mais segurança.
