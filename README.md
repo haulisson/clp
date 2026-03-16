@@ -17,7 +17,7 @@ navegável** publicada via **GitHub Pages**.
 
 A versão publicada do material pode ser acessada em:
 
-**https://haulisson.github.io/Apostila-CLP/**
+**https://haulisson.github.io/clp/**
 
 ------------------------------------------------------------------------
 
