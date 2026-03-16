@@ -43,7 +43,7 @@ Neste capítulo são apresentadas:
   - Instruction List (IL)
   - Sequential Function Chart (SFC)
 
-- [Capítulo 3 - Norma IEC 61131](content/cap03-norma/cap03-norma.qmd)
+- [Capítulo 3 - Norma IEC 61131](content/cap03-norma/index.qmd)
 *(Próximos capítulos serão adicionados progressivamente)*
 
 - Endereçamento de entradas e saídas  
