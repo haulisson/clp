@@ -11,6 +11,8 @@ website:
         text: Cap. 1
       - href: content/cap02-estrutura-clp/index.qmd
         text: Cap. 2
+      - href: content/cap03-norma/index.qmd
+        text: Cap. 3
       - about.qmd
   sidebar:
     style: "docked"
@@ -24,6 +26,8 @@ website:
             text: Capítulo 1 — Introdução aos CLPs
           - href: content/cap02-estrutura-clp/index.qmd
             text: Capítulo 2 — Estrutura e Funcionamento de um CLP
+          - href: content/cap03-norma/cap03-norma.qmd
+            text: Capítulo 3 — Norma IEC 61131
 
 format:
   html:

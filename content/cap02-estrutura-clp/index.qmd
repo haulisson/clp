@@ -1,12 +1,12 @@
 ---
 title: "Capítulo 2 — Estrutura e Funcionamento de um CLP"
-format:
-  html:
-    toc: true
-    toc-depth: 3
+page-title: "Estrutura dos CLPs"
+toc: true
+toc-title: "Neste capítulo"
+number-sections: true
 ---
 
-# Capítulo 2 — Estrutura e Funcionamento de um CLP
+# Estrutura dos CLPs
 
 :::{.callout-tip}
 ## Objetivo do capítulo

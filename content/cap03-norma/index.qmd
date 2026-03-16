@@ -1,0 +1,348 @@
+---
+title: "Capítulo 3 — Norma IEC 61131-3 e Linguagens de Programação de CLPs"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+---
+
+:::{.lead}
+Este capítulo apresenta a norma IEC 61131-3, destacando sua importância para a padronização da programação de CLPs. O foco está nas linguagens definidas pela norma, com ênfase em *Ladder Diagram (LD)*, a linguagem mais difundida na indústria.
+:::
+
+## Introdução
+
+Quando diferentes fabricantes desenvolvem seus próprios controladores lógicos programáveis, surge um problema prático: cada equipamento pode adotar convenções, comandos e formas de programação diferentes. Isso dificulta a formação de técnicos, a manutenção de sistemas e a migração entre plataformas.
+
+A norma **IEC 61131** foi criada para reduzir esse problema, estabelecendo diretrizes para os **Controladores Lógicos Programáveis (CLPs)**. Dentro desse conjunto de normas, a **IEC 61131-3** é a parte responsável pelas **linguagens de programação** e por elementos comuns de software usados em automação industrial.
+
+Do ponto de vista do estudante do curso técnico, essa norma é importante porque ajuda a entender que, embora existam diferenças entre marcas como Siemens, Allen-Bradley, WEG, Schneider, Altus e outras, há uma base conceitual comum. Essa base permite aprender os princípios gerais da programação de CLPs antes de lidar com particularidades de cada fabricante.
+
+## Contexto histórico
+
+Os primeiros CLPs surgiram para substituir painéis de relés em aplicações industriais. Com a expansão de seu uso, diferentes fabricantes passaram a oferecer soluções próprias, muitas vezes pouco compatíveis entre si. Isso gerava dificuldades em:
+
+- treinar operadores e programadores;
+- reaproveitar programas;
+- padronizar projetos;
+- documentar sistemas de automação;
+- integrar equipamentos de fabricantes diferentes.
+
+A criação da família de normas **IEC 61131** buscou organizar esse cenário. A parte 3 da norma passou a definir uma referência para as linguagens de programação dos CLPs, tornando o desenvolvimento de software mais estruturado e mais próximo de boas práticas de engenharia.
+
+## Estrutura geral da IEC 61131
+
+A IEC 61131 é uma família de normas voltada aos CLPs. De forma simplificada, ela trata de aspectos como:
+
+- terminologia;
+- requisitos de hardware;
+- testes;
+- comunicação;
+- programação.
+
+Neste capítulo, nosso interesse principal está na **parte 3**, que trata das **linguagens de programação**.
+
+```{mermaid}
+flowchart TD
+    A[IEC 61131] --> B[Conceitos gerais]
+    A --> C[Aspectos de hardware]
+    A --> D[Comunicação e integração]
+    A --> E[IEC 61131-3]
+    E --> E1[Elementos comuns]
+    E --> E2[Tipos de dados]
+    E --> E3[Organização do programa]
+    E --> E4[Linguagens de programação]
+```
+
+## O que a IEC 61131-3 define
+
+A IEC 61131-3 estabelece uma base comum para a programação de CLPs. Em termos didáticos, ela organiza três grandes grupos de elementos:
+
+### Elementos comuns
+
+A norma define conceitos que aparecem em praticamente qualquer ambiente de programação de CLP, como:
+
+- variáveis de entrada, saída e memória;
+- nomes simbólicos;
+- blocos de funções;
+- programas e funções;
+- organização básica do software.
+
+Isso permite escrever programas de forma mais clara. Por exemplo, em vez de trabalhar apenas com um endereço físico como `I0.0`, o programador pode utilizar um nome como `Sensor_Nivel_Alto`, facilitando leitura e manutenção.
+
+### Tipos de dados
+
+A norma também define tipos de dados usados nos programas, como valores binários, inteiros, reais, temporizadores e outros elementos necessários para o tratamento das informações do processo.
+
+Do ponto de vista introdutório, é suficiente perceber que o CLP não trabalha apenas com estados ligados e desligados. Ele também pode manipular:
+
+- números inteiros;
+- valores analógicos;
+- tempos;
+- contagens;
+- palavras e bytes;
+- dados estruturados.
+
+### Linguagens de programação
+
+A contribuição mais conhecida da IEC 61131-3 é a definição de linguagens de programação para CLPs. Essas linguagens permitem representar a lógica de controle de formas diferentes, conforme a aplicação e o perfil do programador.
+
+## Linguagens definidas pela norma
+
+A IEC 61131-3 consagrou cinco linguagens clássicas no ensino e na prática industrial:
+
+1. **IL — Instruction List**
+2. **ST — Structured Text**
+3. **FBD — Function Block Diagram**
+4. **SFC — Sequential Function Chart**
+5. **LD — Ladder Diagram**
+
+A seguir, veremos o papel de cada uma.
+
+### IL — Instruction List
+
+A **Instruction List (IL)**, ou **Lista de Instruções**, é uma linguagem textual de baixo nível, semelhante à lógica de instruções sequenciais encontrada em linguagens próximas de *assembly*.
+
+Ela foi importante historicamente por permitir programas compactos e diretos, mas tende a ser menos amigável para iniciantes. Em materiais mais atuais, seu uso é muito menos frequente no ensino introdutório.
+
+Exemplo conceitual:
+
+```text
+LD   Start
+ANDN Stop
+ST   Motor
+```
+
+Nesse exemplo, o CLP carrega o estado de `Start`, faz uma operação lógica com a negação de `Stop` e grava o resultado em `Motor`.
+
+### ST — Structured Text
+
+A **Structured Text (ST)**, ou **Texto Estruturado**, é uma linguagem textual de alto nível. Sua sintaxe lembra linguagens como Pascal e outras linguagens estruturadas.
+
+Ela é muito útil em aplicações que exigem:
+
+- cálculos;
+- manipulação de dados;
+- decisões complexas;
+- rotinas repetitivas;
+- tratamento de tabelas e algoritmos.
+
+Exemplo conceitual:
+
+```text
+IF Start AND NOT Stop THEN
+   Motor := TRUE;
+ELSE
+   Motor := FALSE;
+END_IF;
+```
+
+Esse tipo de linguagem é muito adequado quando a lógica deixa de ser apenas combinacional e passa a exigir processamento mais elaborado.
+
+### FBD — Function Block Diagram
+
+A **Function Block Diagram (FBD)**, ou **Diagrama de Blocos de Funções**, representa a lógica por meio de blocos interligados.
+
+É uma linguagem bastante intuitiva para quem já teve contato com:
+
+- eletrônica digital;
+- diagramas funcionais;
+- controle por blocos;
+- processamento de sinais.
+
+No FBD, funções como AND, OR, temporizadores, contadores, comparadores e blocos matemáticos podem ser conectados graficamente para formar a lógica do sistema.
+
+Ela é muito útil quando se deseja visualizar o fluxo funcional de sinais entre blocos.
+
+### SFC — Sequential Function Chart
+
+A **Sequential Function Chart (SFC)**, ou **Diagrama Funcional Sequencial**, é uma linguagem gráfica voltada ao **sequenciamento de etapas**.
+
+Ela é especialmente adequada para processos que ocorrem em sequência, como:
+
+- enchimento, mistura e descarga;
+- avanço e retorno de cilindros;
+- esteiras com etapas de transporte;
+- máquinas com ciclos bem definidos.
+
+Seus elementos principais são:
+
+- **etapas**;
+- **transições**;
+- **ações**.
+
+O SFC é particularmente importante para o estudo de automatismos sequenciais e dialoga diretamente com abordagens como **GRAFCET**, que será aprofundado na segunda parte da apostila.
+
+### LD — Ladder Diagram
+
+A **Ladder Diagram (LD)**, ou **Linguagem Ladder**, é a linguagem gráfica mais tradicional da automação industrial. Ela foi inspirada nos esquemas de relés e contatos usados nos comandos elétricos clássicos.
+
+Sua estrutura lembra uma escada:
+
+- duas barras verticais laterais;
+- linhas horizontais chamadas de *rungs*;
+- contatos e bobinas organizados da esquerda para a direita.
+
+A leitura do programa em Ladder é facilitada para técnicos e eletricistas porque ela preserva um raciocínio semelhante ao dos circuitos de comando com contatos auxiliares, botoeiras, relés e contatores.
+
+## Por que Ladder é a linguagem mais usada na indústria
+
+Embora a norma apresente várias linguagens, a **Ladder** continua sendo a mais difundida em muitos ambientes industriais. Isso ocorre por várias razões:
+
+### Proximidade com comandos elétricos
+
+Em cursos técnicos, o aluno geralmente aprende primeiro circuitos de comando com contatos NA, NF, bobinas, selagem e intertravamentos. A Ladder aproveita essa mesma lógica, tornando a transição para o CLP mais natural.
+
+### Facilidade de manutenção
+
+Na manutenção industrial, rapidez de diagnóstico é essencial. Um programa em Ladder costuma permitir leitura rápida de estados lógicos, facilitando a identificação de falhas em sensores, atuadores e permissivos.
+
+### Forte presença em máquinas discretas
+
+Muitas máquinas industriais trabalham com lógica discreta: ligar, desligar, avançar, recuar, contar, temporizar, intertravar. Nesses casos, a Ladder atende muito bem.
+
+### Aceitação ampla no mercado
+
+Grande parte dos fabricantes oferece ambientes de programação fortemente orientados a Ladder, especialmente para aplicações industriais clássicas.
+
+## Comparação didática entre as linguagens
+
+| Linguagem | Tipo | Melhor aplicação | Observação didática |
+|---|---|---|---|
+| IL | Textual | Instruções simples e históricas | Menos amigável para iniciantes |
+| ST | Textual | Cálculos, algoritmos e decisões complexas | Boa para lógica mais avançada |
+| FBD | Gráfica | Blocos funcionais e processamento de sinais | Visual e modular |
+| SFC | Gráfica | Sequências de operação | Excelente para processos por etapas |
+| LD | Gráfica | Comandos discretos e automação clássica | Mais próxima da formação técnica em eletrotécnica |
+
+## Exemplo industrial de escolha de linguagem
+
+Considere uma máquina de mistura com as seguintes funções:
+
+- ligar bomba de enchimento;
+- detectar nível alto;
+- acionar motor agitador por 30 segundos;
+- abrir válvula de descarga;
+- reiniciar o ciclo quando houver comando do operador.
+
+Nesse caso, diferentes linguagens poderiam ser usadas com enfoques distintos:
+
+- **LD** para intertravamentos, selagem e comandos discretos;
+- **SFC** para representar as etapas do processo;
+- **FBD** para combinar blocos de temporização e comparação;
+- **ST** para cálculos ou regras mais complexas;
+- **IL** apenas em contextos históricos ou específicos.
+
+Isso mostra que as linguagens não são rivais. Em muitos ambientes modernos, elas coexistem e podem até ser usadas de forma complementar.
+
+## Exemplo resolvido
+
+### Situação-problema
+
+Deseja-se comandar um motor por meio de duas entradas:
+
+- `Start`: botão de partida;
+- `Stop`: botão de parada.
+
+A saída `Motor` deve permanecer ligada após o acionamento, até que o botão de parada seja pressionado.
+
+### Interpretação em diferentes linguagens
+
+#### Em Ladder
+
+A solução típica utiliza **selagem**, com um contato da própria saída em paralelo ao botão de partida.
+
+Representação conceitual:
+
+```text
+|----[ Start ]----+----[/ Stop ]----------( Motor )
+|                 |
+|----[ Motor ]----+
+```
+
+#### Em Structured Text
+
+```text
+IF Stop THEN
+   Motor := FALSE;
+ELSIF Start OR Motor THEN
+   Motor := TRUE;
+END_IF;
+```
+
+#### Em FBD
+
+Pode-se representar a lógica por meio de um bloco OR para a selagem, combinado com a condição de parada.
+
+### Comentário didático
+
+Este exemplo mostra que o mesmo problema de automação pode ser descrito de diferentes formas. A escolha da linguagem depende do contexto, mas para o técnico que vem de comandos elétricos, a Ladder tende a ser a representação mais intuitiva.
+
+## Boas práticas ao estudar a IEC 61131-3
+
+Para o estudante iniciante, vale adotar algumas orientações:
+
+1. compreender primeiro a lógica do processo;
+2. identificar entradas, saídas e memórias;
+3. escolher a linguagem mais adequada ao problema;
+4. evitar decorar comandos sem entender a função;
+5. relacionar sempre o programa com a planta industrial.
+
+Na formação técnica, isso significa que o estudo da norma não deve ser tratado como um assunto puramente teórico. O foco precisa estar na aplicação prática em motores, sensores, válvulas, esteiras e dispositivos de comando.
+
+## Relação com simuladores e softwares
+
+Sempre que possível, o estudo deste capítulo pode ser reforçado com ferramentas como:
+
+- **CODESYS**;
+- **PLCIOsim**;
+- simuladores didáticos de Ladder;
+- ambientes de fabricantes.
+
+Essas ferramentas ajudam o aluno a perceber que a norma organiza conceitos gerais, mesmo quando a interface visual muda de uma plataforma para outra.
+
+## Síntese do capítulo
+
+A norma **IEC 61131-3** é fundamental para a programação de CLPs porque estabelece uma referência comum para linguagens e elementos de software usados em automação industrial. Entre as linguagens definidas pela norma, destacam-se **IL**, **ST**, **FBD**, **SFC** e **LD**.
+
+No contexto do curso técnico em eletrotécnica, a **Ladder** merece atenção especial por sua forte ligação com os comandos elétricos tradicionais e por sua grande presença na prática industrial. Ao mesmo tempo, é importante compreender que outras linguagens podem ser mais adequadas em aplicações sequenciais, matemáticas ou funcionais.
+
+## Exercício resolvido
+
+### Questão
+
+Associe cada situação industrial à linguagem mais adequada entre LD, ST, FBD e SFC:
+
+1. Controle de partida e parada com intertravamento.
+2. Sequência automática de enchimento, mistura e descarga.
+3. Cálculo de média de três sensores analógicos.
+4. Interligação de temporizadores, comparadores e blocos lógicos.
+
+### Resolução
+
+1. **LD** — porque envolve lógica discreta e intertravamentos clássicos.
+2. **SFC** — porque o processo é claramente sequencial, por etapas.
+3. **ST** — porque há tratamento numérico e cálculo.
+4. **FBD** — porque a lógica por blocos é direta e visual.
+
+## Exercícios propostos
+
+1. Explique com suas palavras por que a IEC 61131-3 é importante para a automação industrial.
+2. Diferencie IL e ST quanto ao nível de abstração.
+3. Indique uma aplicação industrial mais adequada para o uso de SFC.
+4. Justifique por que a Ladder é tão presente na indústria.
+5. Pesquise no software de programação disponível em seu laboratório quais linguagens da IEC 61131-3 são suportadas.
+6. Reescreva uma lógica simples de partida e parada em duas formas: Ladder e Structured Text.
+
+## Para revisar
+
+- A IEC 61131 é uma família de normas para CLPs.
+- A IEC 61131-3 trata das linguagens de programação.
+- As linguagens clássicas são IL, ST, FBD, SFC e LD.
+- Ladder é a linguagem mais difundida em aplicações industriais discretas.
+- A escolha da linguagem depende do tipo de problema a ser resolvido.
+
+## Preparação para o próximo capítulo
+
+No próximo capítulo, o estudo da **Linguagem Ladder** será aprofundado. Serão analisados os conceitos de continuidade lógica, contatos NA e NF, bobinas, selagem, relés internos, detecção de borda e estruturas típicas de programação em CLP.

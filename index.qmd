@@ -25,11 +25,10 @@ A apostila está organizada em capítulos progressivos.
 
 Explica a arquitetura básica do controlador, incluindo CPU, memória, módulos de entrada e saída, fonte de alimentação, comunicação industrial e ciclo de varredura.
 
-[Acessar o Capítulo 2](content/cap02-estrutura-clp/index.qmd)
+- [Capítulo 2 - Estrutura e Funcionamento de um CLP](content/cap02-estrutura-clp/index.qmd)
 
 *(Próximos capítulos serão adicionados progressivamente)*
 
-- Arquitetura de CLPs  
 - Endereçamento de entradas e saídas  
 - Programação Ladder  
 - Temporizadores e contadores  
