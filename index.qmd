@@ -1,7 +1,77 @@
 ---
-title: "CLP"
+title: "Apostila Digital de CLP"
+subtitle: "Controladores Lógicos Programáveis"
 ---
 
-This is a Quarto website.
+:::{.lead}
+Este site reúne o material didático da disciplina **Controladores Lógicos Programáveis (CLP)** 
+destinado aos estudantes do curso técnico em **Eletrotécnica**.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+O objetivo é apresentar de forma progressiva os fundamentos da automação industrial,
+desde os sistemas de controle por relés até a programação em **Ladder** e **GRAFCET**.
+:::
+
+---
+
+## Estrutura da Apostila
+
+A apostila está organizada em capítulos progressivos.
+
+### Parte I — Fundamentos e Lógica Ladder
+
+- [Capítulo 1 — Introdução aos Controladores Lógicos Programáveis](content/cap01-introducao/index.qmd)
+
+*(Próximos capítulos serão adicionados progressivamente)*
+
+- Arquitetura de CLPs  
+- Endereçamento de entradas e saídas  
+- Programação Ladder  
+- Temporizadores e contadores  
+- Intertravamentos industriais  
+
+---
+
+### Parte II — Automação Sequencial com GRAFCET
+
+- Introdução ao **GRAFCET**
+- Estruturas sequenciais
+- Aplicação em sistemas industriais
+- Integração GRAFCET ↔ Ladder
+
+---
+
+## Objetivo Educacional
+
+Este material foi desenvolvido para:
+
+- apoiar disciplinas de **Automação Industrial**
+- integrar **teoria e prática**
+- permitir **simulação de sistemas industriais**
+- preparar o estudante para **programação real de CLPs**
+
+---
+
+## Simulação de Sistemas
+
+Durante a disciplina serão utilizados simuladores industriais, como:
+
+- https://plciosim.com/
+- simuladores didáticos de plantas industriais
+
+Essas ferramentas permitem testar programas Ladder antes da implementação em CLPs reais.
+
+---
+
+## Sobre o Projeto
+
+Este material faz parte de um projeto educacional desenvolvido no
+
+**Instituto Federal do Rio Grande do Norte (IFRN)**  
+Curso Técnico em **Eletrotécnica**
+
+---
+
+## Repositório do Projeto
+
+Todo o conteúdo deste site é mantido no GitHub.
+
