@@ -1,19 +1,19 @@
 project:
   type: website
 
+lang: pt-BR
+
 website:
   title: "CLP"
+  site-url: "https://haulisson.github.io/clp/"
+  page-footer:
+    center: "Material reutilizável sob a licença [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt-br)."
   navbar:
     left:
       - href: index.qmd
-        text: Home
-      - href: content/cap01-introducao/index.qmd
-        text: Cap. 1
-      - href: content/cap02-estrutura-clp/index.qmd
-        text: Cap. 2
-      - href: content/cap03-norma/index.qmd
-        text: Cap. 3
-      - about.qmd
+        text: Início
+      - href: about.qmd
+        text: Sobre
   sidebar:
     style: "docked"
     search: true
@@ -23,11 +23,19 @@ website:
           - href: index.qmd
             text: Apresentação
           - href: content/cap01-introducao/index.qmd
-            text: Capítulo 1 — Introdução aos CLPs
+            text: Cap. 1 - Introdução aos CLPs
           - href: content/cap02-estrutura-clp/index.qmd
-            text: Capítulo 2 — Estrutura e Funcionamento de um CLP
+            text: Cap. 2 - Estrutura de um CLP
           - href: content/cap03-norma/index.qmd
-            text: Capítulo 3 — Norma IEC 61131
+            text: Cap. 3 - Norma IEC 61131
+          - href: content/cap04-ladder/index.qmd
+            text: Cap. 4 - Linguagem Ladder
+          - href: content/cap05-elementos-ladder/index.qmd
+            text: Cap. 5 - Elementos Ladder
+          - href: content/cap06-funcoes-logicas/index.qmd
+            text: Cap. 6 - Funções lógicas
+          - href: content/cap07-programas-basicos/index.qmd
+            text: Cap. 7 - Programas básicos
 
 format:
   html:
@@ -37,12 +45,7 @@ format:
     css: styles.css
     toc: true
     toc-depth: 3
+    link-external-newwindow: true
 
 execute:
   freeze: auto
-
-# execute: 
-# bibliography:
-
-
-

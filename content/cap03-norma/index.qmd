@@ -1,10 +1,9 @@
 ---
 title: "Capítulo 3 — Norma IEC 61131-3 e Linguagens de Programação de CLPs"
-format:
-  html:
-    toc: true
-    toc-depth: 3
-    number-sections: true
+page-title: "Norma IEC"
+toc: true
+toc-title: "Neste capítulo"
+number-sections: true
 ---
 
 :::{.lead}

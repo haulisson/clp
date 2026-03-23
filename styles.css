@@ -1,1 +1,20 @@
 /* css styles */
+body {
+  line-height: 1.7;
+}
+
+p {
+  text-align: justify;
+}
+
+li {
+  text-align: justify;
+}
+
+.lead {
+  font-size: 1.1rem;
+}
+
+#quarto-content main {
+  max-width: 900px;
+}

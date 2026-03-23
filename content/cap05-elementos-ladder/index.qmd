@@ -1,0 +1,173 @@
+---
+title: "Capítulo 5 — Elementos da Linguagem Ladder"
+page-title: "Fundamentos Ladder"
+toc: true
+toc-title: "Neste capítulo"
+number-sections: true
+---
+
+# Capítulo 5 — Elementos da Linguagem Ladder
+
+:::{.lead}
+Neste capítulo estudaremos os elementos fundamentais da linguagem *Ladder*, base da programação de muitos Controladores Lógicos Programáveis (CLPs). O objetivo é compreender como contatos, bobinas, relés internos e endereços de entrada e saída são organizados para representar comandos industriais de forma lógica, visual e prática.
+:::
+
+## Introdução
+
+A linguagem *Ladder* foi desenvolvida para aproximar a programação de CLPs da lógica de comandos elétricos a relés. Por isso, sua representação gráfica lembra uma escada, com duas barras verticais e vários degraus horizontais chamados de *rungs*.
+
+Essa forma de representação facilita o trabalho de técnicos, eletricistas e programadores, pois permite enxergar com clareza a relação entre condições de entrada e ações de saída.
+
+Na prática industrial, a linguagem *Ladder* é usada em aplicações como:
+
+- acionamento de motores
+- partida e parada de máquinas
+- intertravamentos
+- sistemas de sinalização
+- controle de esteiras
+- controle de válvulas e atuadores
+
+Antes de estudar temporizadores, contadores e funções mais avançadas, é essencial dominar os elementos básicos da linguagem.
+
+## Estrutura básica de um diagrama Ladder
+
+Um programa em *Ladder* é formado por linhas horizontais chamadas de *rungs*. Cada *rung* representa uma lógica de comando.
+
+De modo geral:
+
+- à esquerda ficam as condições de entrada
+- à direita ficam as ações
+- a análise do CLP ocorre da esquerda para a direita
+- a saída será ativada quando houver continuidade lógica no rung
+
+## Contato normalmente aberto (NA)
+
+O contato normalmente aberto (*Normally Open*) conduz logicamente quando a variável associada está verdadeira.
+
+### Exemplo em Ladder
+
+```{=html}
+<pre>
+|----[ I0.0 ]----------------( Q0.0 )----|
+</pre>
+```
+
+Se a entrada `I0.0` estiver ativa, a saída `Q0.0` será energizada.
+
+## Contato normalmente fechado (NF)
+
+O contato normalmente fechado (*Normally Closed*) conduz logicamente quando a variável associada está falsa.
+
+### Exemplo em Ladder
+
+```{=html}
+<pre>
+|----[/ I0.1 ]---------------( Q0.0 )----|
+</pre>
+```
+
+Esse contato é muito utilizado em botões de parada e sistemas de segurança.
+
+## Bobina
+
+A bobina representa uma ação de saída ou uma variável interna que será ativada quando houver continuidade lógica no rung.
+
+### Exemplo
+
+```{=html}
+<pre>
+|----[ I0.0 ]----------------( Q0.0 )----|
+</pre>
+```
+
+Quando a condição lógica for verdadeira, a bobina será energizada.
+
+## Relés internos
+
+Relés internos são memórias auxiliares utilizadas para armazenar estados lógicos dentro do programa.
+
+Eles ajudam a:
+
+- organizar programas maiores
+- criar intertravamentos
+- dividir a lógica em etapas
+- facilitar manutenção
+
+### Exemplo
+
+```{=html}
+<pre>
+|----[ I0.0 ]----[/ I0.1 ]--------( M0.0 )----|
+|----[ M0.0 ]---------------------( Q0.0 )----|
+</pre>
+```
+
+Nesse caso, `M0.0` é uma memória interna usada para habilitar a saída.
+
+## Endereçamento de entradas e saídas
+
+Cada CLP possui endereços para identificar entradas, saídas e memórias.
+
+Exemplo comum em materiais didáticos:
+
+- `I0.0` → entrada digital
+- `Q0.0` → saída digital
+- `M0.0` → memória interna
+
+Fabricantes diferentes podem usar variações dessa notação.
+
+## Exemplo 1 — Acionamento simples de lâmpada
+
+### Situação
+
+Acender uma lâmpada quando um botão for pressionado.
+
+### Variáveis
+
+- `I0.0` botão
+- `Q0.0` lâmpada
+
+### Programa
+
+```{=html}
+<pre>
+|----[ I0.0 ]----------------( Q0.0 )----|
+</pre>
+```
+
+## Exemplo 2 — Partida com botão de parada
+
+### Variáveis
+
+- `I0.0` botão liga
+- `I0.1` botão desliga
+- `Q0.0` motor
+
+### Programa
+
+```{=html}
+<pre>
+|----[ I0.0 ]----[/ I0.1 ]--------( Q0.0 )----|
+</pre>
+```
+
+O motor liga apenas se o botão de partida estiver pressionado e o botão de parada não estiver acionado.
+
+## Exercícios propostos
+
+1. Crie um rung que ligue `Q0.1` quando `I0.2` estiver ativo.
+2. Projete uma lógica para ligar `Q0.2` apenas quando `I0.3` estiver ativo e `I0.4` desligado.
+3. Use um relé interno `M0.0` para habilitar uma saída `Q0.3`.
+4. Explique a diferença entre contato NA, contato NF e bobina.
+
+## Síntese do capítulo
+
+Neste capítulo foram apresentados os elementos fundamentais da linguagem Ladder:
+
+- contato normalmente aberto
+- contato normalmente fechado
+- bobina
+- relés internos
+- endereçamento de entradas e saídas
+
+Esses elementos formam a base da programação em CLPs.

@@ -1,0 +1,259 @@
+---
+title: "Capítulo 6 — Funções Lógicas em Ladder"
+page-title: "Funções Lógicas"
+toc: true
+toc-title: "Neste capítulo"
+number-sections: true
+---
+
+## Introdução
+
+Nos sistemas de automação industrial, grande parte das decisões de controle
+é baseada em **operações lógicas**.
+
+Sensores, botões e dispositivos de campo fornecem sinais digitais que
+assumem apenas dois estados:
+
+- **0 → desligado / falso**
+- **1 → ligado / verdadeiro**
+
+A linguagem **Ladder** permite implementar essas decisões de forma gráfica,
+utilizando contatos e bobinas que representam funções lógicas.
+
+Neste capítulo serão estudadas as três funções fundamentais da lógica digital:
+
+- **Função AND (E)**
+- **Função OR (OU)**
+- **Função NOT (NÃO)**
+
+Essas funções são a base para praticamente todos os sistemas de controle
+discreto utilizados na indústria.
+
+---
+
+## Representação Lógica em Ladder
+
+Na linguagem Ladder, as funções lógicas são implementadas através da
+**forma de ligação dos contatos** dentro de um rung.
+
+Dois princípios são fundamentais:
+
+- **Contatos em série → função AND**
+- **Contatos em paralelo → função OR**
+- **Contato normalmente fechado → função NOT**
+
+O CLP avalia cada rung **da esquerda para a direita**, verificando se existe
+**continuidade lógica** até a bobina.
+
+Se houver continuidade, a saída é ativada.
+
+---
+
+# Função AND (E)
+
+A função lógica **AND** ocorre quando uma saída só deve ser ativada
+se **todas as condições forem verdadeiras ao mesmo tempo**.
+
+## Situação Industrial
+
+Um motor só deve ligar se:
+
+- o botão **LIGAR** for pressionado
+- e o sensor de **segurança estiver habilitado**
+
+## Tabela Verdade
+
+| Entrada A | Entrada B | Saída |
+|-----------|-----------|-------|
+| 0 | 0 | 0 |
+| 0 | 1 | 0 |
+| 1 | 0 | 0 |
+| 1 | 1 | 1 |
+
+## Expressão Lógica
+
+Y = A · B
+
+## Implementação em Ladder
+
+Contatos em **série** representam a função AND.
+
+|----[ A ]----[ B ]----------------( Y )----|
+
+Neste caso:
+
+- ambos os contatos devem estar **fechados**
+- para que a bobina seja energizada.
+
+---
+
+# Função OR (OU)
+
+A função **OR** ocorre quando a saída é ativada se **qualquer uma das entradas
+for verdadeira**.
+
+## Situação Industrial
+
+Uma lâmpada de alarme deve acender quando:
+
+- o sensor de **temperatura alta** for ativado  
+OU
+- o sensor de **pressão alta** for ativado.
+
+## Tabela Verdade
+
+| Entrada A | Entrada B | Saída |
+|-----------|-----------|-------|
+| 0 | 0 | 0 |
+| 0 | 1 | 1 |
+| 1 | 0 | 1 |
+| 1 | 1 | 1 |
+
+## Expressão Lógica
+
+Y = A + B
+
+## Implementação em Ladder
+
+Contatos em **paralelo** representam a função OR.
+
+|----[ A ]------------------------( Y )----|
+|                                         |
+|----[ B ]--------------------------------|
+
+Se **qualquer um dos caminhos possuir continuidade lógica**,
+a bobina será energizada.
+
+---
+
+# Função NOT (NÃO)
+
+A função **NOT** realiza a **negação lógica** de um sinal.
+
+Isso significa que a saída será ativada quando a entrada estiver
+**desligada**.
+
+## Situação Industrial
+
+Um sistema deve indicar **falha de sensor** quando:
+
+- o sensor não estiver ativo.
+
+## Tabela Verdade
+
+| Entrada A | Saída |
+|-----------|-------|
+| 0 | 1 |
+| 1 | 0 |
+
+## Expressão Lógica
+
+Y = NOT(A)
+
+## Implementação em Ladder
+
+A função NOT é implementada utilizando **contato normalmente fechado (NF)**.
+
+|----[/ A ]-----------------------( Y )----|
+
+Neste caso:
+
+- se **A = 0**, o contato permanece fechado
+- permitindo a energização da saída.
+
+---
+
+# Combinação de Funções Lógicas
+
+Na prática industrial, raramente utilizamos apenas uma função lógica isolada.
+Normalmente ocorre uma **combinação de funções AND, OR e NOT**.
+
+## Exemplo
+
+Um motor deve ligar quando:
+
+- o botão **START** for pressionado  
+E
+- não existir **falha de segurança**
+
+OU
+
+- quando o sistema estiver em **modo automático**
+
+## Expressão Lógica
+
+Y = (START · NOT(FALHA)) + AUTO
+
+## Ladder equivalente
+
+|----[ START ]----[/ FALHA ]------------( Y )----|
+|                                               |
+|----[ AUTO ]-----------------------------------|
+
+---
+
+# Transformação de Lógica Elétrica para Ladder
+
+Em comandos elétricos tradicionais utilizam-se:
+
+- contatos
+- relés
+- botoeiras
+- sensores
+
+A lógica Ladder permite **representar o mesmo comportamento**
+sem necessidade de alteração física da fiação.
+
+Assim, um circuito de relés pode ser convertido diretamente em
+um programa Ladder.
+
+Esse é um dos motivos pelos quais a linguagem Ladder é amplamente
+utilizada na automação industrial.
+
+---
+
+# Exercícios
+
+1. Construa a **tabela verdade** para a seguinte expressão:
+
+Y = A · B + C
+
+2. Desenhe o **diagrama Ladder** correspondente.
+
+3. Um sistema de alarme deve ligar quando:
+
+- o sensor de porta estiver aberto  
+OU
+- o sensor de janela estiver aberto
+
+Represente:
+
+- tabela verdade
+- expressão lógica
+- Ladder
+
+4. Um motor só pode ligar quando:
+
+- o botão START for pressionado  
+E
+- o relé térmico não estiver atuado.
+
+Desenhe o circuito Ladder.
+
+---
+
+# Conclusão
+
+As funções **AND, OR e NOT** constituem a base da lógica digital aplicada
+à automação industrial.
+
+Através da organização dos contatos em série, paralelo ou normalmente
+fechados, é possível implementar decisões complexas em programas Ladder.
+
+Nos próximos capítulos serão apresentados:
+
+- temporizadores
+- contadores
+- blocos funcionais
+
+que ampliam as possibilidades de controle em sistemas automatizados.

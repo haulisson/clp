@@ -1,5 +1,38 @@
 ---
-title: "About"
+title: "Sobre a Apostila"
 ---
 
-About this site
+:::{.lead}
+Esta apostila digital reúne material didático de **Controladores Lógicos Programáveis (CLP)** voltado ao ensino técnico de **Eletrotécnica** e **Automação Industrial**.
+:::
+
+## Finalidade
+
+O site foi organizado para apoiar o estudo progressivo de:
+
+- fundamentos de CLPs;
+- arquitetura e funcionamento dos controladores;
+- norma IEC 61131-3;
+- linguagem Ladder;
+- aplicações introdutórias em automação industrial.
+
+## Público-alvo
+
+O material foi pensado principalmente para:
+
+- estudantes de cursos técnicos;
+- turmas de comandos elétricos e automação;
+- professores que desejem reutilizar ou adaptar o conteúdo em aula.
+
+## Organização do conteúdo
+
+Os capítulos estão distribuídos em sequência didática, partindo dos conceitos básicos e avançando para leitura, interpretação e elaboração de programas em Ladder.
+
+## Licença e uso
+
+Este material está licenciado em **CC BY 4.0**, permitindo compartilhamento e adaptação com a devida atribuição ao autor.
+
+Mais informações:
+
+- [Licença Creative Commons CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- [Repositório do projeto no GitHub](https://github.com/haulisson/clp)

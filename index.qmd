@@ -15,19 +15,40 @@ desde os sistemas de controle por relés até a programação em **Ladder** e **
 
 ## Estrutura da Apostila
 
-A apostila está organizada em capítulos progressivos.
+A apostila está organizada em capítulos progressivos que conduzem o estudante
+da base conceitual da automação até a programação prática de sistemas industriais.
 
-### Parte I — Fundamentos e Lógica Ladder
+---
+
+# Parte I — Fundamentos e Programação Ladder
+
+## Capítulo 1 — Introdução aos Controladores Lógicos Programáveis
 
 - [Capítulo 1 — Introdução aos Controladores Lógicos Programáveis](content/cap01-introducao/index.qmd)
 
-### Capítulo 2 — Estrutura e Funcionamento de um CLP
+Apresenta a origem dos CLPs, sua evolução a partir dos sistemas de relés e
+sua importância na automação industrial moderna.
 
-Explica a arquitetura básica do controlador, incluindo CPU, memória, módulos de entrada e saída, fonte de alimentação, comunicação industrial e ciclo de varredura.
+---
 
-- [Capítulo 2 - Estrutura e Funcionamento de um CLP](content/cap02-estrutura-clp/index.qmd)
+## Capítulo 2 — Estrutura e Funcionamento de um CLP
+
+- [Capítulo 2 — Estrutura e Funcionamento de um CLP](content/cap02-estrutura-clp/index.qmd)
+
+Explica a arquitetura básica do controlador, incluindo:
+
+- CPU  
+- memória  
+- módulos de entrada e saída  
+- fonte de alimentação  
+- comunicação industrial  
+- ciclo de varredura
+
+---
 
 ## Capítulo 3 — Norma IEC 61131-3
+
+- [Capítulo 3 — Norma IEC 61131-3](content/cap03-norma/index.qmd)
 
 A norma **IEC 61131-3** define as linguagens de programação utilizadas em
 Controladores Lógicos Programáveis.
@@ -37,73 +58,151 @@ Neste capítulo são apresentadas:
 - a origem da padronização das linguagens de CLP
 - a estrutura da norma IEC 61131
 - as linguagens definidas pelo padrão:
-  - Ladder Diagram (LD)
-  - Function Block Diagram (FBD)
-  - Structured Text (ST)
-  - Instruction List (IL)
+
+  - Ladder Diagram (LD)  
+  - Function Block Diagram (FBD)  
+  - Structured Text (ST)  
+  - Instruction List (IL)  
   - Sequential Function Chart (SFC)
 
-- [Capítulo 3 - Norma IEC 61131](content/cap03-norma/index.qmd)
-*(Próximos capítulos serão adicionados progressivamente)*
+---
+
+## Capítulo 4 — Fundamentos da Linguagem Ladder
+
+- [Capítulo 4 — Fundamentos da Linguagem Ladder](content/cap04-ladder/index.qmd)
+
+Introduz a linguagem **Ladder**, principal linguagem utilizada na automação industrial.
+
+São abordados:
+
+- estrutura do diagrama Ladder
+- barramentos e *rungs*
+- continuidade lógica
+- contatos normalmente abertos e fechados
+- bobinas
+- leitura de programas Ladder
+- exemplos industriais básicos
+- circuito de **selo (auto-retenção)**
+
+Este capítulo conecta diretamente os **comandos elétricos tradicionais**
+com a programação em CLP.
+
+---
+
+## Capítulo 5 — Elementos da Linguagem Ladder
+
+- [Capítulo 5 — Elementos da Linguagem Ladder](content/cap05-elementos-ladder/index.qmd)
+
+Aprofunda os elementos fundamentais utilizados na construção de programas em **Ladder**.
+
+São abordados:
+
+- contatos normalmente abertos (NA) e normalmente fechados (NF)
+- bobinas de saída
+- relés internos e memórias auxiliares
+- endereçamento de entradas e saídas
+- organização lógica dos *rungs*
+- interpretação de estados lógicos no CLP
+- exemplos de comandos industriais simples
+- utilização de memórias internas para organização do programa
+
+Este capítulo consolida o entendimento dos **elementos básicos da programação Ladder**, preparando o estudante para estruturas mais avançadas como temporizadores, contadores e blocos funcionais.
+
+---
+
+## Capítulo 6 — Funções Lógicas em Ladder
+
+- [Capítulo 6 — Funções Lógicas em Ladder](content/cap06-funcoes-logicas/index.qmd)
+
+Apresenta as **funções lógicas fundamentais aplicadas à linguagem Ladder**.
+
+São estudadas:
+
+- função AND (E)
+- função OR (OU)
+- função NOT (NÃO)
+- implementação em Ladder
+- tabelas verdade
+- combinação de funções lógicas
+- transformação de lógica elétrica para lógica Ladder
+
+Este capítulo conecta os conceitos de **lógica digital**
+com sua **implementação prática em CLPs**.
+
+---
+
+## Capítulo 7 — Programas Básicos em Ladder
+
+- [Capítulo 7 — Programas Básicos em Ladder](content/cap07-programas-basicos/index.qmd)
+
+Apresenta os **primeiros programas funcionais em linguagem Ladder** aplicados ao controle de dispositivos industriais.
+
+São estudados:
+
+- circuito liga
+- circuito desliga
+- circuito liga/desliga
+- intertravamento entre saídas
+- interpretação de programas Ladder
+- aplicações com motores e lâmpadas
+
+Este capítulo introduz os **padrões fundamentais de programação em CLP**, 
+servindo como base para o desenvolvimento de **sistemas de controle mais complexos**.
+
+---
+
+### Próximos capítulos da Parte I
+
+Nos próximos capítulos serão abordados:
 
 - Endereçamento de entradas e saídas  
-- Programação Ladder  
-- Temporizadores e contadores  
+- Programação Ladder aplicada  
+- Temporizadores  
+- Contadores  
 - Intertravamentos industriais  
+- Diagnóstico de sistemas de automação
 
 ---
 
-### Parte II — Automação Sequencial com GRAFCET
+# Parte II — Automação Sequencial com GRAFCET
+
+A segunda parte da apostila introduz o **GRAFCET**, método gráfico utilizado
+para modelagem de sistemas sequenciais.
+
+Serão estudados:
 
 - Introdução ao **GRAFCET**
+- Etapas e transições
 - Estruturas sequenciais
+- Paralelismo
 - Aplicação em sistemas industriais
-- Integração GRAFCET ↔ Ladder
+- Integração **GRAFCET ↔ Ladder**
 
 ---
 
-## Objetivo Educacional
+# Objetivo Educacional
 
 Este material foi desenvolvido para:
 
 - apoiar disciplinas de **Automação Industrial**
 - integrar **teoria e prática**
-- permitir **simulação de sistemas industriais**
-- preparar o estudante para **programação real de CLPs**
+- aproximar **comandos elétricos** da **programação em CLP**
+- preparar o estudante para projetos reais de automação
+- desenvolver raciocínio lógico aplicado à indústria
 
 ---
 
-## Simulação de Sistemas
+# Recursos Utilizados no Curso
 
-Durante a disciplina serão utilizados simuladores industriais, como:
+Durante a disciplina serão utilizados:
 
-- https://plciosim.com/
-- simuladores didáticos de plantas industriais
+- simuladores de CLP
+- softwares industriais de programação
+- exemplos de sistemas reais
+- simuladores com planta virtual
 
-Essas ferramentas permitem testar programas Ladder antes da implementação em CLPs reais.
+Entre os simuladores recomendados estão:
 
----
-
-## Recursos trabalhados ao longo da apostila
-
-Ao longo dos capítulos, o estudante terá contato com:
-
-- exemplos industriais;
-- diagramas e representações;
-- exercícios resolvidos;
-- exercícios propostos;
-- sugestões de simulação com ferramentas educacionais.
-
-## Sobre o Projeto
-
-Este material faz parte de um projeto educacional desenvolvido no
-
-**Instituto Federal do Rio Grande do Norte (IFRN)**  
-Curso Técnico em **Eletrotécnica**
-
----
-
-## Repositório do Projeto
-
-Todo o conteúdo deste site é mantido no GitHub.
-
+- **PLCIOsim**
+- **CADeSimu**
+- ambientes de programação de fabricantes de CLP

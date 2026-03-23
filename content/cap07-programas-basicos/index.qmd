@@ -1,0 +1,178 @@
+---
+title: Capítulo 7 - Programas Básicos em Ladder
+page-title: "Básico de Programação"
+toc: true
+toc-title: "Neste capítulo"
+number-sections: true
+---
+
+# Capítulo 7 --- Programas Básicos em Ladder
+
+::: lead
+Neste capítulo são apresentados os primeiros **programas funcionais em
+linguagem Ladder**, aplicados a situações simples de automação
+industrial.
+
+O objetivo é permitir que o estudante compreenda como implementar
+funções básicas de controle utilizando **entradas digitais, saídas e
+lógica de contatos**.
+:::
+
+A linguagem **Ladder** é amplamente utilizada em controladores lógicos
+programáveis (CLPs) por sua semelhança com os diagramas elétricos de
+relés.\
+Isso permite que técnicos e engenheiros interpretem facilmente o
+funcionamento de um sistema automatizado.
+
+Neste capítulo serão apresentados alguns dos **padrões mais simples e
+fundamentais de programação**.
+
+# 7.1 Circuito Liga
+
+O circuito **Liga** é o exemplo mais simples de acionamento de uma
+saída.
+
+Quando a entrada é acionada, a saída é energizada.
+
+## Situação industrial
+
+Um botão liga uma lâmpada indicadora.
+
+## Entradas
+
+-   Botão de acionamento
+
+## Saídas
+
+-   Lâmpada
+
+## Representação Ladder
+
+    |----[ I0.0 ]----------------( Q0.0 )----|
+
+Onde:
+
+-   **I0.0** → botão de acionamento
+-   **Q0.0** → lâmpada
+
+## Funcionamento
+
+-   Quando o botão é pressionado → entrada ativa
+-   A continuidade lógica é estabelecida
+-   A saída é energizada
+
+# 7.2 Circuito Desliga
+
+Neste caso a saída permanece ligada **até que um contato normalmente
+fechado seja aberto**.
+
+## Situação industrial
+
+Um sensor desliga uma máquina quando detecta uma condição de segurança.
+
+## Representação Ladder
+
+    |----[/ I0.1 ]---------------( Q0.0 )----|
+
+Onde:
+
+-   **I0.1** → sensor de segurança (NF)
+
+## Funcionamento
+
+-   Enquanto o sensor estiver fechado → saída ligada
+-   Quando o sensor abrir → saída desliga
+
+# 7.3 Circuito Liga / Desliga
+
+Este é um dos circuitos mais comuns na automação industrial.
+
+Utiliza dois botões:
+
+-   botão **liga**
+-   botão **desliga**
+
+## Situação industrial
+
+Controle de acionamento de um motor.
+
+## Entradas
+
+-   Botão liga (NA)
+-   Botão desliga (NF)
+
+## Saídas
+
+-   Contator do motor
+
+## Representação Ladder
+
+    |----[ I0.0 ]----[/ I0.1 ]----( Q0.0 )----|
+
+Onde:
+
+-   **I0.0** → botão liga
+-   **I0.1** → botão desliga
+-   **Q0.0** → motor
+
+# 7.4 Intertravamento
+
+Intertravamento é utilizado quando **duas saídas não podem operar
+simultaneamente**.
+
+## Situação industrial
+
+Controle de motor com dois sentidos:
+
+-   sentido horário
+-   sentido anti-horário
+
+## Representação Ladder
+
+Sentido horário:
+
+    |----[ I0.0 ]----[/ Q0.1 ]----( Q0.0 )----|
+
+Sentido anti-horário:
+
+    |----[ I0.1 ]----[/ Q0.0 ]----( Q0.1 )----|
+
+# 7.5 Exercícios
+
+## Exercício 1 --- Controle de Lâmpada
+
+Um botão liga uma lâmpada.
+
+1.  Identifique as entradas e saídas.
+2.  Desenhe o diagrama Ladder.
+3.  Explique o funcionamento.
+
+## Exercício 2 --- Liga / Desliga de Motor
+
+Um motor é controlado por dois botões:
+
+-   Liga
+-   Desliga
+
+1.  Identifique as entradas e saídas.
+2.  Desenhe o diagrama Ladder.
+3.  Explique o funcionamento do circuito.
+
+## Exercício 3 --- Intertravamento de Motores
+
+Dois motores não podem operar simultaneamente.
+
+1.  Elabore o circuito Ladder com intertravamento.
+2.  Explique como o sistema evita acionamento simultâneo.
+
+# Conclusão
+
+Os programas apresentados neste capítulo representam os **blocos
+fundamentais da programação Ladder**.
+
+A partir dessas estruturas básicas é possível desenvolver:
+
+-   circuitos de **selo**
+-   **temporizadores**
+-   **contadores**
+-   **sequências automáticas**
